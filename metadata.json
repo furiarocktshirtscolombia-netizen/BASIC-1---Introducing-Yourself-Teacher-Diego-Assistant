@@ -1,0 +1,8 @@
+{
+  "name": "Teacher Diego - English Tutor",
+  "description": "Interactive AI speaking tutor for beginner English students.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
