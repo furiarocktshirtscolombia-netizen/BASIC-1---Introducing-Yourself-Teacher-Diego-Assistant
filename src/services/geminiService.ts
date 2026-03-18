@@ -16,7 +16,7 @@ export const analyzeStudentAnswer = async (
 ): Promise<AnalysisResult> => {
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3.1-pro-preview',
+      model: 'gemini-1.5-pro',
       contents: `You are Teacher Diego, an English tutor for A1 beginners.
 The student was asked: "${question}"
 The student answered: "${studentAnswer}"
