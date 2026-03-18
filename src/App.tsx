@@ -8,6 +8,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, XCircle, Lightbulb, Volume2, ArrowRight, RotateCcw, Play } from 'lucide-react';
 
 export default function App() {
+  const apiKey = process.env.GEMINI_API_KEY || (import.meta as any).env?.VITE_GEMINI_API_KEY || "";
+  if (!apiKey) {
+    return (
+      <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"sans-serif",background:"#f8fafc"}}>
+        <div style={{background:"white",padding:"2rem",borderRadius:"1rem",boxShadow:"0 4px 20px rgba(0,0,0,0.1)",maxWidth:"400px",textAlign:"center"}}>
+          <h2 style={{color:"#dc2626",marginBottom:"1rem"}}>⚠️ Missing API Key</h2>
+          <p style={{color:"#475569"}}>Please configure the <strong>GEMINI_API_KEY</strong> environment variable in your Vercel project settings.</p>
+        </div>
+      </div>
+    );
+  }
   const [hasStarted, setHasStarted] = useState(false);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
